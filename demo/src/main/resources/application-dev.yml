@@ -1,0 +1,27 @@
+# 日志配置
+logging:
+  level:
+    com.corki: debug
+    org.springframework: warn
+    org.mybatis.spring.mapper: error
+    org.apache.fury: warn
+  config: classpath:logback-plus.xml
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: public
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: public
+  config:
+    import:
+      - optional:nacos:${spring.application.name}
+      - optional:nacos:web-common
+      - optional:nacos:mysql
+      - optional:nacos:redis

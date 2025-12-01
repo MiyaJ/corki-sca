@@ -1,0 +1,9 @@
+server:
+  port: 10006
+
+spring:
+  application:
+    name: corki-sca-gateway
+
+  profiles:
+    active:  dev

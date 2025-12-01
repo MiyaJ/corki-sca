@@ -1,0 +1,12 @@
+server:
+  port: 10000
+
+project:
+  alias: demo
+  base-package: com.corki.${project.alias}
+
+spring:
+  application:
+    name: demo
+  profiles:
+    active:  dev

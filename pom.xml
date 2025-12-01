@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.9</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.corki</groupId>
+    <artifactId>corki-sca</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>corki-sca</name>
+    <packaging>pom</packaging>
+    <url/>
+
+    <modules>
+        <module>demo</module>
+        <module>corki-sca-admin</module>
+        <module>corki-sca-member</module>
+        <module>corki-sca-common</module>
+        <module>corki-sca-product</module>
+        <module>corki-sca-order</module>
+        <module>corki-sca-pay</module>
+        <module>corki-sca-gateway</module>
+    </modules>
+
+    <properties>
+        <project.version>0.0.1-SNAPSHOT</project.version>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.version>3.2.9</spring-boot.version>
+        <spring-cloud.version>2023.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.3.4</spring-cloud-alibaba.version>
+        <sentinel.version>1.8.6</sentinel.version>
+        <nacos.version>2.3.2</nacos.version>
+        <rocketMQ.version>5.1.4</rocketMQ.version>
+        <seata.version>2.0.0</seata.version>
+        <mybatis-plus.version>3.5.14</mybatis-plus.version>
+        <lombok.version>1.18.42</lombok.version>
+        <sa-token.version>1.44.0</sa-token.version>
+        <hutool.version>5.8.40</hutool.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+        <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
+        <springdoc.version>2.6.0</springdoc.version>
+        <knife4j.version>4.3.0</knife4j.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 覆盖存在漏洞的 snakeyaml 版本 -->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>2.0</version> <!-- CVE-2022-1471 已修复版本 -->
+            </dependency>
+
+            <!-- 覆盖存在漏洞的 jackson-core 版本 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.15.2</version> <!-- WS-2022-0468 已修复版本 -->
+            </dependency>
+
+            <!-- 覆盖存在漏洞的 spring-security-crypto 版本 -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-crypto</artifactId>
+                <version>6.2.0</version> <!-- CVE-2025-22228 / CVE-2024-38827 已修复版本 -->
+            </dependency>
+
+            <!-- 原有 spring-boot-dependencies 引入保持不变 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

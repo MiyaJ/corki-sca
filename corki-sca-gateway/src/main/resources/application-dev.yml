@@ -1,0 +1,79 @@
+# 日志配置
+logging:
+  level:
+    com.corki: debug
+    org.springframework: warn
+    org.mybatis.spring.mapper: error
+    org.apache.fury: warn
+    root: debug
+  config: classpath:logback-plus.xml
+
+spring:
+  application:
+    name: corki-sca-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: public
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: public
+  config:
+    import:
+      - optional:nacos:corki-sca-gateway
+      - optional:nacos:redis
+  main:
+    web-application-type: reactive
+
+spring.cloud.gateway:
+  discovery:
+    locator:
+      enabled: true  # 开启自动服务发现
+  routes:
+    - id: corki-sca-admin
+      uri: lb://corki-sca-admin
+      predicates:
+        - Path=/admin/**  # 匹配路径 /test/...
+      filters:
+        - StripPrefix=1
+    - id: corki-sca-member
+      uri: lb://corki-sca-member
+      predicates:
+        - Path=/member/**
+      filters:
+        - StripPrefix=1
+    - id: corki-sca-order
+      uri: lb://corki-sca-order
+      predicates:
+        - Path=/order/**
+      filters:
+        - StripPrefix=1
+    - id: corki-sca-pay
+      uri: lb://corki-sca-pay
+      predicates:
+        - Path=/pay/**
+      filters:
+        - StripPrefix=1
+    - id: corki-sca-product
+      uri: lb://corki-sca-product
+      predicates:
+        - Path=/product/**
+      filters:
+        - StripPrefix=1
+
+# knife4j 网关聚合
+knife4j:
+  gateway:
+    enabled: true
+    # 指定服务发现的模式聚合微服务文档，并且是默认 default 分组
+    strategy: discover
+    discover:
+      # OpenAPI 3.0 规范
+      version: openapi3
+      enabled: true
+
+

@@ -1,0 +1,12 @@
+server:
+  port: 10003
+
+project:
+  alias: product
+  base-package: com.corki.${project.alias}
+
+spring:
+  application:
+    name: corki-sca-product
+  profiles:
+    active:  dev
