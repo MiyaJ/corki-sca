@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: corki-sca-gateway
-
   profiles:
     active:  dev
+  main:
+    allow-bean-definition-overriding: true

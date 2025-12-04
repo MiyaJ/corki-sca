@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.corki.member.dao.mapper.MemberMapper">
+  <resultMap id="BaseResultMap" type="com.corki.member.dao.entity.Member">
+    <!--@mbg.generated-->
+    <!--@Table `member`-->
+    <id column="id" property="id" />
+    <result column="username" property="username" />
+    <result column="password" property="password" />
+    <result column="email" property="email" />
+    <result column="mobile" property="mobile" />
+    <result column="status" property="status" />
+    <result column="registration_time" property="registrationTime" />
+    <result column="last_login_time" property="lastLoginTime" />
+    <result column="last_login_device" property="lastLoginDevice" />
+    <result column="is_del" property="isDel" />
+    <result column="create_by" property="createBy" />
+    <result column="create_time" property="createTime" />
+    <result column="update_by" property="updateBy" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, email, mobile, `status`, registration_time, last_login_time, 
+    last_login_device, is_del, create_by, create_time, update_by, update_time
+  </sql>
+</mapper>

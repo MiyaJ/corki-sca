@@ -25,13 +25,6 @@ public class R<T>{
         return r;
     }
 
-    public static <T> R<T> error(ResponseEnum responseEnum){
-        R<T> r = new R<>();
-        r.setCode(responseEnum.getCode());
-        r.setMessage(responseEnum.getMsg());
-        return r;
-    }
-
     public static <T> R<T> fail(Integer code, String message){
         R<T> r = new R<>();
         r.setCode(code);
@@ -46,7 +39,14 @@ public class R<T>{
         return r;
     }
 
-    public static <T> R<T> error(){
+    public static <T> R<T> fail(ResponseEnum responseEnum){
+        R<T> r = new R<>();
+        r.setCode(responseEnum.getCode());
+        r.setMessage(responseEnum.getMsg());
+        return r;
+    }
+
+    public static <T> R<T> fail(){
         R<T> r = new R<>();
         r.setCode(ResponseEnum.ERROR.getCode());
         r.setMessage(ResponseEnum.ERROR.getMsg());

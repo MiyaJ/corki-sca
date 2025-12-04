@@ -2,7 +2,6 @@ package com.corki.admin.service;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.SaTokenInfo;
-import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.json.JSONUtil;
 import com.corki.admin.common.enums.AdminUserStatusEnum;
@@ -12,6 +11,7 @@ import com.corki.admin.model.AccountPwdLoginReq;
 import com.corki.admin.model.LoginUserRsp;
 import com.corki.common.enums.ResponseEnum;
 import com.corki.common.model.R;
+import com.corki.common.utils.StpAdminUtil;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -33,15 +33,15 @@ public class LoginServiceImpl implements ILoginService {
                 .last("limit 1")
                 .one();
         if (user == null) {
-            return R.error(ResponseEnum.USER_NOT_EXIST);
+            return R.fail(ResponseEnum.USER_NOT_EXIST);
         }
 
         if (!AdminUserStatusEnum.NORMAL.is(user.getStatus())) {
-            return R.error(ResponseEnum.USER_STATUS_ERROR);
+            return R.fail(ResponseEnum.USER_STATUS_ERROR);
         }
         String md5Pwd = SaSecureUtil.md5(req.getPassword());
         if (!user.getPassword().equals(md5Pwd)) {
-            return R.error(ResponseEnum.USER_PASSWORD_ERROR);
+            return R.fail(ResponseEnum.USER_PASSWORD_ERROR);
         }
 
         // 更新登录信息, 登录日志
@@ -49,10 +49,10 @@ public class LoginServiceImpl implements ILoginService {
         user.setLastLoginDevice(req.getDeviceType());
         userService.updateById(user);
 
-        StpUtil.login(user.getId(), String.valueOf(req.getDeviceType()));
+        StpAdminUtil.login(user.getId(), String.valueOf(req.getDeviceType()));
         LoginUserRsp loginUserRsp = BeanUtil.copyProperties(user, LoginUserRsp.class);
 
-        SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
+        SaTokenInfo tokenInfo = StpAdminUtil.getTokenInfo();
         BeanUtil.copyProperties(tokenInfo, loginUserRsp);
 
         return R.success(loginUserRsp);

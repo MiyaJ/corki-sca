@@ -24,7 +24,9 @@ spring:
         namespace: public
   config:
     import:
-      - optional:nacos:corki-sca-gateway
+      - optional:nacos:${spring.application.name}
+      - optional:nacos:web-common
+      - optional:nacos:mysql
       - optional:nacos:redis
   main:
     web-application-type: reactive
@@ -76,4 +78,8 @@ knife4j:
       version: openapi3
       enabled: true
 
-
+app:
+  excludePaths:
+    - /favicon.ico
+    - /admin/login/**
+    - /member/login/**
