@@ -8,6 +8,8 @@ logging:
   config: classpath:logback-plus.xml
 
 spring:
+  application:
+    name: demo
   cloud:
     nacos:
       config:
