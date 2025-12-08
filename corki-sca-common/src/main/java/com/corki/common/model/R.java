@@ -25,6 +25,14 @@ public class R<T>{
         return r;
     }
 
+    public static <T> R<T> success(String message){
+        R<T> r = new R<>();
+        r.setCode(ResponseEnum.SUCCESS.getCode());
+        r.setMessage(message);
+        r.setData(null);
+        return r;
+    }
+
     public static <T> R<T> fail(Integer code, String message){
         R<T> r = new R<>();
         r.setCode(code);

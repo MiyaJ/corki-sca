@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @TableName(value = "`user`")
@@ -60,6 +61,36 @@ public class User {
     private Integer lastLoginDevice;
 
     /**
+     * 部门ID
+     */
+    @TableField(value = "dept_id")
+    private Long deptId;
+
+    /**
+     * 昵称
+     */
+    @TableField(value = "nickname")
+    private String nickname;
+
+    /**
+     * 头像URL
+     */
+    @TableField(value = "avatar")
+    private String avatar;
+
+    /**
+     * 性别：0-未知，1-男，2-女
+     */
+    @TableField(value = "sex")
+    private Integer sex;
+
+    /**
+     * 备注
+     */
+    @TableField(value = "remark")
+    private String remark;
+
+    /**
      * 删除标识; 0-未删除; 1-已删除
      */
     @TableField(value = "is_del")
@@ -76,4 +107,22 @@ public class User {
 
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+
+    /**
+     * 部门名称
+     */
+    @TableField(exist = false)
+    private String deptName;
+
+    /**
+     * 角色组
+     */
+    @TableField(exist = false)
+    private Long[] roleIds;
+
+    /**
+     * 角色列表
+     */
+    @TableField(exist = false)
+    private List<Role> roles;
 }

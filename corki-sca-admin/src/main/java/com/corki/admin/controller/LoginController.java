@@ -1,24 +1,78 @@
 package com.corki.admin.controller;
 
-import com.corki.admin.model.AccountPwdLoginReq;
-import com.corki.admin.model.LoginUserRsp;
+import cn.dev33.satoken.stp.StpUtil;
+import com.corki.admin.model.dto.LoginDTO;
+import com.corki.admin.model.vo.LoginUserVO;
+import com.corki.admin.model.vo.RouterVO;
 import com.corki.admin.service.ILoginService;
 import com.corki.common.model.R;
-import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.corki.common.utils.StpAdminUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+/**
+ * 登录控制器
+ *
+ * @author Corki
+ * @since 2024-12-09
+ */
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/admin/auth")
 public class LoginController {
 
-    @Resource
+    @Autowired
     private ILoginService loginService;
 
-    @PostMapping("/accountPwdLogin")
-    public R<LoginUserRsp> accountPwdLogin(@RequestBody AccountPwdLoginReq req) {
-        return loginService.accountPwdLogin(req);
+
+
+    /**
+     * 用户登录
+     */
+    @PostMapping("/login")
+    public R<LoginUserVO> login(@Validated @RequestBody LoginDTO loginDTO) {
+        return loginService.login(loginDTO.getUsername(), loginDTO.getPassword());
+    }
+
+    /**
+     * 用户登出
+     */
+    @PostMapping("/logout")
+    public R<Void> logout() {
+        loginService.logout();
+        return R.success("退出成功");
+    }
+
+    /**
+     * 获取用户信息
+     */
+    @GetMapping("/getInfo")
+    public R<LoginUserVO> getInfo() {
+        return loginService.getInfo();
+    }
+
+    /**
+     * 获取用户路由信息
+     */
+    @GetMapping("/getRouters")
+    public R<List<RouterVO>> getRouters() {
+        return loginService.getRouters();
+    }
+
+    /**
+     * 获取用户权限信息
+     */
+    @GetMapping("/getPermissions")
+    public R<List<String>> getPermissions() {
+        try {
+            Long userId = StpAdminUtil.getLoginIdAsLong();
+            // TODO: 获取权限列表
+            return R.success();
+        } catch (Exception e) {
+            return R.fail("获取权限信息失败");
+        }
     }
 }
