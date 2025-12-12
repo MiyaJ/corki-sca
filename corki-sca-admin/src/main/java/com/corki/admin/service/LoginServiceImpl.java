@@ -9,6 +9,8 @@ import com.corki.admin.dao.entity.User;
 import com.corki.admin.dao.service.UserService;
 import com.corki.admin.model.AccountPwdLoginReq;
 import com.corki.admin.model.LoginUserRsp;
+import com.corki.admin.model.vo.LoginUserVO;
+import com.corki.admin.model.vo.RouterVO;
 import com.corki.common.enums.ResponseEnum;
 import com.corki.common.model.R;
 import com.corki.common.utils.StpAdminUtil;
@@ -17,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -58,4 +61,23 @@ public class LoginServiceImpl implements ILoginService {
         return R.success(loginUserRsp);
     }
 
+    @Override
+    public R<LoginUserVO> login(String username, String password) {
+        return null;
+    }
+
+    @Override
+    public void logout() {
+
+    }
+
+    @Override
+    public R<LoginUserVO> getInfo() {
+        return null;
+    }
+
+    @Override
+    public R<List<RouterVO>> getRouters() {
+        return null;
+    }
 }

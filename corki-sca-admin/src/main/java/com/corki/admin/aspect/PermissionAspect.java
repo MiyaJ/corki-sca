@@ -3,7 +3,7 @@ package com.corki.admin.aspect;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.stp.StpUtil;
-import com.corki.common.core.exception.ServiceException;
+import com.corki.common.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -50,8 +50,8 @@ public class PermissionAspect {
         // 检查权限注解
         SaCheckPermission checkPermission = method.getAnnotation(SaCheckPermission.class);
         if (checkPermission != null) {
-            String value = checkPermission.value();
-            if (!StpUtil.hasPermission(value)) {
+            String[] value = checkPermission.value();
+            if (!StpUtil.hasPermissionOr(value)) {
                 log.warn("用户 {} 没有权限 {}", StpUtil.getLoginIdDefaultNull(), value);
                 throw new ServiceException("没有访问权限，请联系管理员授权");
             }
@@ -60,8 +60,8 @@ public class PermissionAspect {
         // 检查角色注解
         SaCheckRole checkRole = method.getAnnotation(SaCheckRole.class);
         if (checkRole != null) {
-            String value = checkRole.value();
-            if (!StpUtil.hasRole(value)) {
+            String[] value = checkRole.value();
+            if (!StpUtil.hasRoleOr(value)) {
                 log.warn("用户 {} 没有角色 {}", StpUtil.getLoginIdDefaultNull(), value);
                 throw new ServiceException("没有访问权限，请联系管理员授权");
             }

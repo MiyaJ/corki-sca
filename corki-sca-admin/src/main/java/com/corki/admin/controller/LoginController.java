@@ -1,6 +1,7 @@
 package com.corki.admin.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.util.StrUtil;
 import com.corki.admin.model.dto.LoginDTO;
 import com.corki.admin.model.vo.LoginUserVO;
 import com.corki.admin.model.vo.RouterVO;
@@ -9,6 +10,7 @@ import com.corki.common.model.R;
 import com.corki.common.utils.StpAdminUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,4 +77,5 @@ public class LoginController {
             return R.fail("获取权限信息失败");
         }
     }
+
 }
