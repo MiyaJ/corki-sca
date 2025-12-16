@@ -79,13 +79,6 @@
             <version>${p6spy.version}</version>
         </dependency>
 
-        <!-- hutool工具模块 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
         <!-- 提供 Redis 连接池 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

@@ -1,4 +1,4 @@
-package com.corki.gateway;
+package com.corki;
 
 import com.corki.common.annotation.EnableScaApplication;
 import org.springframework.boot.SpringApplication;

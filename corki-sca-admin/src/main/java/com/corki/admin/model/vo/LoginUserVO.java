@@ -107,4 +107,8 @@ public class LoginUserVO {
      * 操作系统
      */
     private String os;
+
+    private String tokenName;
+    private String tokenValue;
+    private String loginDevice;
 }

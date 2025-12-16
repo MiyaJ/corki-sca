@@ -1,15 +1,15 @@
-package com.corki.member;
+package com.corki;
 
 import com.corki.common.annotation.EnableScaApplication;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 
 @EnableScaApplication
-@MapperScan("com.corki.member.dao.mapper")
-public class CorkiScaMemberApplication {
+@MapperScan("com.corki.demo.dao.mapper")
+public class CorkiScaPayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CorkiScaMemberApplication.class, args);
+        SpringApplication.run(CorkiScaPayApplication.class, args);
     }
 
 }

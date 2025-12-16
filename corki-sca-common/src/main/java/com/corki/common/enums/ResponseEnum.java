@@ -19,8 +19,8 @@ public enum ResponseEnum {
 
     ;
 
-    private Integer code;
-    private String msg;
+    private final Integer code;
+    private final String msg;
 
     ResponseEnum(int code, String msg) {
         this.code = code;

@@ -10,6 +10,7 @@ import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpLogic;
 import cn.dev33.satoken.stp.parameter.SaLoginParameter;
 import cn.dev33.satoken.stp.parameter.SaLogoutParameter;
+import com.corki.common.enums.LoginUserTypeEnum;
 import lombok.Getter;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class StpAdminUtil {
     /**
      * 多账号体系下的类型标识
      */
-    public static final String TYPE = "admin";
+    public static final String TYPE = LoginUserTypeEnum.ADMIN.getUserType();
 
     /**
      * 底层使用的 StpLogic 对象

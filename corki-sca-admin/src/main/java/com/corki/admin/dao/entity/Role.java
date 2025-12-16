@@ -116,4 +116,8 @@ public class Role {
      */
     @TableField(exist = false)
     private List<Menu> menus;
+
+    public Role(Long id) {
+        this.id = id;
+    }
 }
