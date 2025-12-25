@@ -1,0 +1,47 @@
+package com.corki.gateway.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
+
+/**
+ * 跨域配置
+ *
+ * @author corki
+ * @date 2025/12/24
+ */
+@Configuration
+public class CorsConfig {
+
+    @Bean
+    public CorsWebFilter corsWebFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+
+        // 允许的请求头
+        config.addAllowedHeader("*");
+
+        // 允许的请求方法
+        config.addAllowedMethod("*");
+
+        // 允许的请求来源
+        config.addAllowedOrigin("*");
+
+        // 允许携带认证信息（如 Cookie）
+        config.setAllowCredentials(true);
+
+        // 允许的响应头
+        config.addExposedHeader("*");
+
+        // 预检请求的有效期，单位为秒
+        config.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+
+        return new CorsWebFilter(source);
+    }
+}

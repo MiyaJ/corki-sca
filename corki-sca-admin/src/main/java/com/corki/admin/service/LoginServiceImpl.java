@@ -150,4 +150,8 @@ public class LoginServiceImpl implements ILoginService {
     public R<List<RouterVO>> getRouters() {
         return null;
     }
+
+    public static void main(String[] args) {
+        System.out.println(SaSecureUtil.md5("123456"));
+    }
 }

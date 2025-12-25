@@ -35,47 +35,6 @@ services:
       timeout: 10s
       retries: 10
 
-
-
-
-
-
-
-
-#  # nacos
-#  nacos:
-#    image: nacos/nacos-server:v3.0.3
-#    hostname: nacos-server
-#    # restart: always
-#    container_name: corki-nacos
-#    environment:
-#      - PREFER_HOST_MODE=hostname
-#      - MODE=standalone
-#      - NACOS_AUTH_TOKEN=cXBEVktObjYxVTdhQWhQZjNSc2RJanRFZUZIaW9UNVE=
-#      - NACOS_AUTH_IDENTITY_KEY=2222
-#      - NACOS_AUTH_IDENTITY_VALUE=2xxx
-#    ports:
-#      - "8848:8848"
-#
-#  # mysql
-#  mysql:
-#    container_name: corki-mysql
-#    hostname: integrated-mysql
-#    # restart: always
-#    image: mysql:8.0
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root
-#      MYSQL_DATABASE: integrated_storage
-#    ports:
-#      - "3306:3306"
-#    volumes:
-#      - ../config/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
-#    command:
-#      [
-#        --character-set-server=utf8mb4,
-#        --collation-server=utf8mb4_unicode_ci
-#      ]
-
   # redis
   redis:
     image: redis:latest

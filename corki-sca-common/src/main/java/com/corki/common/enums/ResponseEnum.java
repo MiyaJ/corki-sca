@@ -6,7 +6,9 @@ import lombok.Getter;
 public enum ResponseEnum {
 
     SUCCESS(200, "成功"),
-    TOKEN_IS_INVALID(401, "token无效"),
+    BAD_REQUEST(400, "请求错误"),
+    UN_AUTH(401, "未认证"),
+    NOT_FOUND(404, "未找到"),
     ERROR(500, "服务器错误"),
 
     USER_NOT_EXIST(10001, "用户不存在"),

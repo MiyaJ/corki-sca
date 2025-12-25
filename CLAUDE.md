@@ -43,8 +43,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 │   ├── impl (业务逻辑实现)
 │   └── manager (领域服务)
 ├── dao (持久层) - 数据访问，MyBatis-Plus操作
-├── model (领域模型)
+│   ├── service (MyBatis-Plus接口)
 │   ├── entity (数据库实体)
+│   └── mapper (MyBatis映射器)
+├── model (领域模型)
 │   ├── dto (数据传输对象)
 │   └── vo (视图对象)
 └── common (公共层) - 工具类，常量，通用组件
