@@ -4,7 +4,7 @@
 //import cn.dev33.satoken.annotation.SaCheckPermission;
 //import com.corki.admin.dao.entity.Menu;
 //import com.corki.admin.dao.service.IMenuService;
-//import com.corki.common.model.R;
+//import com.corki.core.model.R;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.validation.annotation.Validated;
 //import org.springframework.web.bind.annotation.*;

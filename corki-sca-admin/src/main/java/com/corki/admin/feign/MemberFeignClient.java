@@ -1,7 +1,7 @@
 package com.corki.admin.feign;
 
 import com.corki.admin.feign.fallback.FeignClientFallback;
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

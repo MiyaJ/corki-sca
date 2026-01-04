@@ -1,6 +1,6 @@
 package com.corki.product.controller;
 
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

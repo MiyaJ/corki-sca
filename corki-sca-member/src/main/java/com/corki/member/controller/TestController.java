@@ -1,6 +1,6 @@
 package com.corki.member.controller;
 
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

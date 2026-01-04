@@ -12,7 +12,7 @@
 //import com.corki.admin.model.vo.LoginUserVO;
 //import com.corki.admin.model.vo.RouterVO;
 //import com.corki.admin.service.ILoginService;
-//import com.corki.common.model.R;
+//import com.corki.core.model.R;
 //import org.springframework.beans.BeanUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;

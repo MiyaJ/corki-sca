@@ -1,6 +1,6 @@
 package com.corki;
 
-import com.corki.common.annotation.EnableScaApplication;
+import com.corki.core.annotation.EnableScaApplication;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 

@@ -1,7 +1,7 @@
 package com.corki.admin.feign.fallback;
 
 import com.corki.admin.feign.MemberFeignClient;
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 
 public class FeignClientFallback implements MemberFeignClient {
 

@@ -1,7 +1,7 @@
 package com.corki.gateway.handler;
 
-import com.corki.common.enums.ResponseEnum;
-import com.corki.common.model.R;
+import com.corki.core.enums.ResponseEnum;
+import com.corki.core.model.R;
 import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;

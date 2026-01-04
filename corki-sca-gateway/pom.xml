@@ -39,7 +39,7 @@
 
         <dependency>
             <groupId>com.corki</groupId>
-            <artifactId>corki-sca-common</artifactId>
+            <artifactId>corki-sca-common-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>

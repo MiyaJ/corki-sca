@@ -5,7 +5,7 @@ import com.corki.admin.model.LoginUserRsp;
 import com.corki.admin.model.dto.LoginDTO;
 import com.corki.admin.model.vo.LoginUserVO;
 import com.corki.admin.model.vo.RouterVO;
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 
 import java.util.List;
 

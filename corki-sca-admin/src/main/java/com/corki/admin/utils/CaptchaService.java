@@ -2,7 +2,7 @@ package com.corki.admin.utils;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
-import com.corki.common.utils.RedisUtil;
+import com.corki.redis.utils.RedisUtil;
 import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

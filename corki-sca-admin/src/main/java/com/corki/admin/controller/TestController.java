@@ -1,7 +1,7 @@
 package com.corki.admin.controller;
 
 import com.corki.admin.feign.MemberFeignClient;
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

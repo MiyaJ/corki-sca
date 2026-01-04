@@ -4,7 +4,7 @@
 //import cn.dev33.satoken.annotation.SaCheckPermission;
 //import com.corki.admin.dao.entity.User;
 //import com.corki.admin.dao.service.UserService;
-//import com.corki.common.model.R;
+//import com.corki.core.model.R;
 //import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 //import com.baomidou.mybatisplus.core.metadata.IPage;
 //import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

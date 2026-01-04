@@ -1,7 +1,7 @@
 package com.corki.member.controller;
 
 
-import com.corki.common.model.R;
+import com.corki.core.model.R;
 import com.corki.member.model.AccountPwdLoginReq;
 import com.corki.member.model.LoginUserRsp;
 import com.corki.member.service.ILoginService;
