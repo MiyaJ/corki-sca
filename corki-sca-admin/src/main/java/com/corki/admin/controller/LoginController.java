@@ -8,7 +8,6 @@ import com.corki.admin.service.ILoginService;
 import com.corki.admin.utils.CaptchaService;
 import com.corki.core.model.R;
 import com.corki.core.utils.StpAdminUtil;
-import com.corki.core.utils.StpKit;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -117,8 +116,7 @@ public class LoginController {
     @GetMapping("/getPermissions")
     public R<List<String>> getPermissions() {
         try {
-            long loginIdAsLong = StpKit.ADMIN.getLoginIdAsLong();
-            Long userId = StpAdminUtil.getLoginIdAsLong();
+            long userId = StpAdminUtil.getLoginIdAsLong();
             // TODO: 获取权限列表
             return R.success();
         } catch (Exception e) {
