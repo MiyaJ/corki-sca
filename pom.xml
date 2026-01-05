@@ -48,6 +48,8 @@
         <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
         <springdoc.version>2.6.0</springdoc.version>
         <knife4j.version>4.3.0</knife4j.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
+        <jackson.version>2.15.2</jackson.version>
     </properties>
 
     <dependencyManagement>
@@ -71,14 +73,14 @@
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>2.0</version> <!-- CVE-2022-1471 已修复版本 -->
+                <version>${snakeyaml.version}</version> <!-- CVE-2022-1471 已修复版本 -->
             </dependency>
 
             <!-- 覆盖存在漏洞的 jackson-core 版本 -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.15.2</version> <!-- WS-2022-0468 已修复版本 -->
+                <version>${jackson.version}</version> <!-- WS-2022-0468 已修复版本 -->
             </dependency>
 
             <!-- 覆盖存在漏洞的 spring-security-crypto 版本 -->

@@ -16,6 +16,7 @@
     <modules>
         <module>corki-sca-common-redis</module>
         <module>corki-sca-common-core</module>
+        <module>corki-sca-common-mq</module>
     </modules>
 
     <dependencies>

@@ -82,4 +82,5 @@ app:
   excludePaths:
     - /favicon.ico
     - /admin/login/**
+    - /admin/test/**
     - /member/login/**
